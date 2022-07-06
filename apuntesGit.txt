@@ -1,0 +1,72 @@
+Todo lo que aquí se menciona inicialmente es a partir del video https://www.youtube.com/watch?v=VdGzPZ31ts8&t=1711s&ab_channel=HolaMundo
+Descargar git
+Configurar git
+    Trabajar siempre en bash de git
+    git --version (y se debe de mostrar la versión si todo esta bien)
+    git config --global user.name "Jaime Esqueda" (para configurar el nombre)
+    git config --global.email jaime... (con esto se configura el correo)
+    git config --global core.editor "code --wait" (para que la terminal se quede esperando hasta que nosotros cerremos el editor de texto )
+    git config --global -e (para visualizar el archivo de configuración global)
+    (se abre el editor de texto con toda la información, una vez que cerramos se regresa a la terminal)
+    git config --global core.autocrlf true (cuando esta en windows)
+    git config -h (para llamar la ayuda de config)
+
+ls (para listar todos los archivos y carpetas que hay en el directorio)
+pwd (indica donde nos encontramos)
+cd workspace (cambiamos de directorio en este caso al directorio workspace)
+cd .. (salir del directorio y regresar a uno anterior de la jerarquia)
+mkdir nuevodirectorio (se ha creado un nuevo directorio llamado 'nuevodirectorio')
+git init (se ha inicializado un repositorio vacio en la posición que estamos)
+ls -a (muestra todos los archivos incluyendo los ocultos)
+
+code . (abrir code en la carpeta  en donde me encuentro)
+(dentro de code abrir un nuevo archivo, que puede ser cualquier extensión)
+(escribir todo lo que se quiera, y guardar)
+(regresamos a la terminal)
+
+git status (la primer vez nos dice que no hay aun ningun commit y los archivos que aun no estan en traked)
+git add nombre_de_archivo # agrega el archivo a la etapa de stage 
+#si solicitamos otro status nos apareceran los archivos en verde para indicar que ahora pueden ser llevados a commit
+#creamos un nuevo archivo en el editor
+git commit -m "mensaje con sentido" #compromete a los archivos en la etapa de stage
+rm nombre_de_archivo #borra el archivo
+#si lo borramos tenemos que llevarlo a stage
+#y como esta en stage ahora a comprometerlo
+git rm nombre de archivo #método directo de eliminación
+git restore --staged nombre_de_archivo #restaura el archivo indicado de la etapa de stage
+git restore nombre_de_archivo #recuperar un archivo eliminado antes de commit
+mv nombre_de_archivo1 nombre_de_archivo2 #renombra un archivo
+git mv archivo1 archivo2 #metodo abreviado para renombrar archivos desde git
+
+#archivos que deben ser ignorados por git
+#abrir un nuevo archivo con nombre .env y poner dentro de él lo que deseamos
+#generamos un nuevo archivo llamado .gitignore y dentro de ese archivo pasamos los archivos que deseamos ignorar en este caso .env
+#ahora lo llevamos a stage y a commit
+git status -s #nos muestra el estado pero con menos información
+git diff #nos dice los cambios que se estan realizando
+git diff --staged #nos muestra todos los cambios que se muestran en la etapa de staged
+git log #nos muestra mucha información todos los cambios
+git log --oneline #muestra el historial pero solamente una linea por commit
+
+#creando una rama
+git branch #nos indica en que rama estamos
+git checkout -b nombre_de_la_rama#esto crea y nos cambia a la rama bash
+#abrir el editor de texto, hacemos los cambios que queremos en la rama
+#agregamos el archivo en la rama
+#lo comprometemos en la rama
+cat nombre_de_archivo #muestra el contenido del archivo
+git checkout nombre_de_archivo #nos cambiamos a otra rama
+#para traer los cambios de la rama b a la rama principal
+#estar en la rama principal
+git merge nombre_de_la_rama
+
+#vincular con github
+#crear un repositorio con el nombre de la carpeta que se quiere sincronizar
+#copiar la linea git remote add origin ...
+#pegarla en la terminal
+#despues en la terminal 
+git push -u origin nombre_de_la_rama #en este caso master
+#va a pedir una llave que hay que generar en github
+#en github ir a perfil, ir a setting, ir a developer setting
+#generar el token
+#si hay dudad ir al video en los ultimos 3 minutos
